@@ -1,7 +1,7 @@
-export default function CodeStructure(){
-    return(
-        <div>
-            
-        </div>
+
+import Image from "next/image"
+export default function CodeStructure() {
+    return (
+       
     )
 }
