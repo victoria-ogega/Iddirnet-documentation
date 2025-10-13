@@ -15,6 +15,7 @@ export default function Home() {
         <HomeSection />
       </div>
       <div id="features">
+        <ProductOverview />
       </div>
       <div id="code-structure">
         <CodeStructure />
