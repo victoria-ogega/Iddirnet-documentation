@@ -51,7 +51,7 @@ export default function CodeStructure() {
                     </div>
                     <div className="flex flex-col items-center w-full sm:w-auto">
                         <img
-                            src="images/frontend.jpg"
+                            src="images/backend.jpg"
                             alt="Mobile"
                             className="w-full sm:w-100 h-150 object-cover rounded-lg mb-2"
                         />
