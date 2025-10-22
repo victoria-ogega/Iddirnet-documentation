@@ -7,6 +7,7 @@ import FooterSection from "./components/footer";
 import Navigation from "./components/Navigation";
 import Products from "./components/overview";
 import SetupInstructions from "./components/setup_instructions";
+import NamingConventions from "./components/codeStandard";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <div id="testing">
         <Testing />
       </div>
+      {/* <NamingConventions /> */}
       <div id="deployment">
         <Deployment />
       </div>
