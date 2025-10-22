@@ -45,10 +45,10 @@ export default function SetupInstructions() {
                         Frontend Mobile Setup
                     </h2>
                     <ol className="list-decimal list-inside space-y-2 text-sm sm:text-base">
-                        <li>Open the Android project folder in Android Studio</li>
-                        <li>Sync and download all required dependencies</li>
-                        <li>Build the project using the Gradle build system</li>
-                        <li>Run the app in an emulator by tapping on the run button</li>
+                        <li>Open the Android project folder</li>
+                        <li>Sync and download all dependencies</li>
+                        <li>Build the project </li>
+                        <li>Run the app in an emulator</li>
                         <li>Generate Signed APK Bundle</li>
                         <li>Install and start the app on a device</li>
                     </ol>

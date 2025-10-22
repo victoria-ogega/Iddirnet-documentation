@@ -90,11 +90,11 @@ export default function ProductOverview() {
                         </span>
                     </div>
                     <div className="flex flex-col items-center w-full sm:w-auto">
-                        {/* <img
-                            src="images/mobile.jpg"
+                        <img
+                            src="/images/kotlinApp.png"
                             alt="Mobile"
-                            className="w-full sm:w-100 h-150 object-cover rounded-lg mb-2"
-                        /> */}
+                            className="w-full sm:w-100 h-130 object-cover rounded-lg mb-2"
+                        />
                         <span className="text-lg font-medium" style={{ color: '#1E2736' }}>
                             Mobile
                         </span>
