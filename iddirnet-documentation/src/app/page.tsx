@@ -6,6 +6,7 @@ import ProductOverview from "./components/productOverview";
 import FooterSection from "./components/footer";
 import Navigation from "./components/Navigation";
 import Products from "./components/overview";
+import SetupInstructions from "./components/setup_instructions";
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
       </div>
       <div id="code-structure">
         <CodeStructure />
+        <SetupInstructions />
+
       </div>
       <div id="testing">
         <Testing />
@@ -26,8 +29,10 @@ export default function Home() {
       <div id="deployment">
         <Deployment />
       </div>
-      <Products/>
+      <Products />
       <FooterSection />
+
+
     </div>
   );
 }
