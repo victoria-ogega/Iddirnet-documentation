@@ -12,8 +12,8 @@ export default function HomeSection() {
 
             <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-center mb-12">
                 <div className="md:w-150 leading-relaxed text-sm sm:text-base text-justify">
-                    <p>IddirNet is a digital platform built for Ethiopian communities, designed to modernize the
-                        traditional iddir system. It brings accountability, clarity, and convenience to one of Ethiopia's most
+                    <p>IddirNet is a digital platform built for Ethiopian communities called Iddirs, designed to modernize their
+                        traditional systems. It brings accountability, clarity, and convenience to one of Ethiopia's most
                         cherished social institutions empowering members to manage contributions, track finances, and reserve shared
                         resources with full transparency.We bring communities together.IddirNet makes it easy to join,
                         support, and connect with others, sharing life's joys
