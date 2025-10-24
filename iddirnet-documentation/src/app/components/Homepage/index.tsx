@@ -1,70 +1,343 @@
-import Image from "next/image"
+'use client';
 
-export default function HomeSection() {
-    return (
-        <div
-            className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12 font-sans"
-            style={{ fontFamily: "'Nunito', sans-serif", color: '#171717' }}
-        >
-            <h1 className="text-2xl sm:text-3xl font-bold mb-4 mt-8">
-                No more guesswork, just trust. <span className="text-orange-400">Just IddirNet.</span>
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import NavBar from '../Navigation';
+
+export default function HomePage() {
+  const [currentInfoImage, setCurrentInfoImage] = useState(0);
+  const infoImages = ['/images/infor1.png', '/images/infor2.png'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentInfoImage((prev) => (prev + 1) % infoImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [infoImages.length]);
+
+  return (
+    <div className="flex min-h-screen bg-white">
+      {/* Sidebar */}
+      <NavBar />
+
+      {/* Main Content Area — shifted right */}
+      <main className="ml-64 w-full p-6 md:p-8">
+        {/* Hero Section — Elegant & Centered */}
+        <section className="pt-6 pb-12 max-w-6xl mx-auto">
+          <div className="text-center space-y-8">
+            <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
+              No more guesswork, just trust. Just{' '}
+              <span className="text-orange-500">IddirNet.</span>
             </h1>
 
-            <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-center mb-12">
-                <div className="md:w-150 leading-relaxed text-sm sm:text-base text-justify">
-                    <p>IddirNet is a digital platform built for Ethiopian communities, designed to modernize the
-                        traditional iddir system. It brings accountability, clarity, and convenience to one of Ethiopia's most
-                        cherished social institutions empowering members to manage contributions, track finances, and reserve shared
-                        resources with full transparency.We bring communities together.IddirNet makes it easy to join,
-                        support, and connect with others, sharing life's joys
-                        and easing burdens all in one trusted space. We are  dedicated to strengthening the values of trust, transparency, and
-                        solidarity within Ethiopian Iddirs.</p>
-                </div>
-                <div className="md:w-1/3 flex justify-center">
-                    <Image
-                        src="/images/community and togetherness.jpg"
-                        alt="Community and togetherness"
-                        width={300}
-                        height={200}
-                        className="rounded-lg shadow-md"
-                    />
-                </div>
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/images/people.png"
+                alt="Iddir Community Illustration"
+                width={450}
+                height={350}
+                className=" max-w-full h-auto transition-transform hover:scale-105"
+              />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                <div className="border border-orange-400 p-4 rounded-lg shadow-sm">
-                    <p className="text-sm sm:text-base mb-3"> Every contribution, expense, and balance is recorded digitally, no more guesswork or disputes. </p>
-                    <Image
-                        src="/images/Contribution.jpeg"
-                        alt="Contribution tracking"
-                        width={120}
-                        height={80}
-                        className="mx-auto rounded"
-                    />
-                </div>
+            <p className="text-lg md:text-xl leading-relaxed max-w-7xl mx-auto text-gray-600">
+              IddirNet is a digital platform built for Ethiopian communities, designed to modernize the traditional iddir system.
+              It brings accountability, clarity, and convenience to one of Ethiopia's most cherished social institutions,
+              empowering members to manage contributions, track finances, and reserve shared resources with full transparency.
+              We bring communities together. IddirNet makes it easy to join, support, and connect with others, sharing life's joys and easing burdens all in one trusted space.
+         
+            </p>
 
-                <div className="border border-orange-400 p-4 rounded-lg shadow-sm">
-                    <p className="text-sm sm:text-base mb-3">Members can easily check availability and reserve community assets without having to rely on word of mouth.</p>
-                    <Image
-                        src="/images/resources-removebg-preview.png"
-                        alt="Resource management"
-                        width={120}
-                        height={80}
-                        className="mx-auto rounded"
-                    />
-                </div>
+            {/* Feature Boxes — Card Style */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {/* Feature 1 */}
+              <div className="bg-white border border-orange-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group">
+                <p className="text-orange-600 text-base leading-relaxed group-hover:text-orange-700 transition-colors">
+                  Every contribution, expense, and balance is recorded digitally, no more guesswork or disputes.
+                </p>
+              </div>
 
-                <div className="border border-orange-400 p-4 rounded-lg shadow-sm">
-                    <p className="text-sm sm:text-base mb-3">While modernizing them, IddirNet honors the core values of mutual aid and solidarity that defines iddirs.</p>
-                    <Image
-                        src="/images/mutual_solidarity-removebg-preview.png"
-                        alt="Mutual solidarity"
-                        width={120}
-                        height={80}
-                        className="mx-auto rounded"
-                    />
-                </div>
+              {/* Feature 2 - Highlighted */}
+              <div className="bg-orange-500 text-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <p className="text-base leading-relaxed">
+                  Members can easily check availability and reserve community assets without having to rely on word of mouth.
+                </p>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="bg-white border border-orange-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group">
+                <p className="text-orange-600 text-base leading-relaxed group-hover:text-orange-700 transition-colors">
+                  While modernizing them, IddirNet honors the core values of mutual aid and solidarity that defines iddirs.
+                </p>
+              </div>
             </div>
+          </div>
+        </section>
+
+        <div className="max-w-7xl mx-auto">
+
+{/* System Architecture */}
+<section className="py-12 text-center">
+  <h2 className="text-3xl font-bold text-orange-500 mb-8">System Architecture</h2>
+
+  {/* Clickable Architecture Diagram */}
+  <div className="flex justify-center mb-12">
+    <a
+      href="https://lucid.app/lucidchart/5b591621-374c-4fe3-8fe9-f8877f7ce3ba/edit?invitationId=inv_5efca279-a249-403a-819a-90fb701e0782&page=0_0#"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block transition-transform duration-300 hover:scale-102 focus:outline-none"
+    >
+      <Image
+        src="/images/System architecture.png"
+        alt="System Architecture Diagram"
+        width={1200}
+        height={600}
+        className="rounded-xl shadow-lg max-w-full h-auto mx-auto"
+      />
+    </a>
+  </div>
+
+  {/* Backend & Database Details */}
+  <div className="max-w-4xl mx-auto space-y-10">
+    {/* Backend (API) */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-2xl font-bold text-gray-800 mb-2">Backend (API)</h3>
+      <div className="w-24 h-1 bg-orange-500 rounded-full mb-4"></div>
+      <p className="text-gray-700 leading-relaxed max-w-2xl text-center">
+        Django REST Framework handles API endpoints, managing HTTP requests, data serialization, validation, and authentication.
+      </p>
+    </div>
+
+    {/* Database */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-2xl font-bold text-gray-800 mb-2">Database</h3>
+      <div className="w-24 h-1 bg-orange-500 rounded-full mb-4"></div>
+      <p className="text-gray-700 leading-relaxed max-w-2xl text-center">
+        PostgreSQL for relational data storage, ensuring reliability, ACID compliance, and scalability for Iddir communities.
+      </p>
+    </div>
+  </div>
+
+
+</section>
+
+          {/* Target Users + Product Overview */}
+          <section className="py-5">
+            <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
+              <div className="lg:w-1/2">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">Our target users?</h2>
+                <p className="text-lg leading-relaxed text-gray-600">
+                  Our target audience comprises the esteemed leaders and dedicated members of an iddir,
+                  actively engaged on the vibrant platform, where they collaborate, connect, and contribute
+                  to their community's shared goals with passion and purpose.
+                </p>
+              </div>
+              <div className="lg:w-1/2 flex justify-center">
+                <Image
+                  src="/images/target.png"
+                  alt="Target Users Icon"
+                  width={400}
+                  height={400}
+                  className="max-w-full h-auto animate-rotate-slow"
+                />
+              </div>
+            </div>
+
+            {/* Product Overview */}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-orange-500 mb-4">Product Overview</h2>
+            </div>
+
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/images/phones.png"
+                alt="Mobile App Screenshots"
+                width={600}
+                height={400}
+                className="rounded-xl shadow-lg max-w-full h-auto transition-transform hover:scale-102"
+              />
+            </div>
+
+            <div className="flex justify-center">
+              <Link
+                href="/mobile-app"
+                className="inline-block bg-white text-orange-400 border-2 border-orange-400 hover:border-orange-500 hover:bg-orange-50 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+              >
+                Mobile App
+              </Link>
+            </div>
+          </section>
+
+          {/* Admin Dashboard & Info Website */}
+          <section className="py-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Admin Dashboard */}
+              <div className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                <h3 className="text-2xl font-bold text-orange-500 mb-4">Admin Dashboard</h3>
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src="/images/dashboard.png"
+                    alt="Admin Dashboard Preview"
+                    width={900}
+                    height={700}
+                    className="rounded-xl max-w-full h-auto shadow-inner"
+                  />
+                </div>
+                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                  A web-based dashboard for Iddir administrators to manage members, contributions, events,
+                  and resources with real-time insights and full control.
+                </p>
+                <div className="flex justify-center">
+                  <Link href="https://iddirnet-beige.vercel.app/" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-700 font-medium">
+                    Explore Dashboard
+                    <Image
+                      src="/images/arrow.png"
+                      alt="Go to Admin Dashboard"
+                      width={24}
+                      height={24}
+                      className="transition-transform hover:translate-x-1"
+                    />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Informational Website */}
+              <div className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                <h3 className="text-2xl font-bold text-orange-500 mb-4">Informational Website</h3>
+                <div className="flex justify-center mb-4">
+                  <div className="relative w-full max-w-[900px] aspect-[1160/700] rounded-xl overflow-hidden shadow-inner">
+                    {infoImages.map((src, index) => (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                          index === currentInfoImage ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      >
+                        <Image
+                          src={src}
+                          alt={`Informational Website Slide ${index + 1}`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                  A public-facing website that explains the IddirNet mission, benefits, and how to get started.
+                  Designed to educate and onboard new communities.
+                </p>
+                <div className="flex justify-center">
+                  <Link href="https://iddirnet.vercel.app/" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-700 font-medium">
+                    Visit Website
+                    <Image
+                      src="/images/arrow.png"
+                      alt="Go to Info Website"
+                      width={24}
+                      height={24}
+                      className="transition-transform hover:translate-x-1"
+                    />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Divider */}
+          <div className="border-t border-gray-100 my-12"></div>
+
+          {/* ERD Diagram */}
+          <section className="py-12 text-center">
+            <h2 className="text-3xl font-bold text-orange-500 mb-6">Entity Relationship Diagram (ERD)</h2>
+            <Image
+              src="/images/ERD.png"
+              alt="Entity Relationship Diagram"
+              width={1000}
+              height={600}
+              className="rounded-xl shadow-lg max-w-full h-auto mx-auto"
+            />
+          </section>
+
+          {/* Divider */}
+          <div className="border-t border-gray-100 my-12"></div>
+
+          {/* IddirNet Features Section — Original Style */}
+          <section className="py-12">
+            <h2 className="text-3xl font-bold text-orange-400 text-center mb-12">IddirNet Features</h2>
+
+            {/* Feature 1 */}
+            <div className="flex flex-col md:flex-row items-start gap-8 mb-12">
+              <div className="md:w-12 flex-shrink-0 flex justify-center">
+                <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">1</div>
+              </div>
+              <div className="bg-orange-100 text-gray-900 p-6 rounded-xl max-w-3xl">
+                <h3 className="text-xl font-bold text-orange-600 mb-4">Inventory Tracking Module</h3>
+                <p className="leading-relaxed">
+                  Manages the full lifecycle of Iddir resources, including items owned, borrowed, let, and rented.
+                  It provides real-time updates on resource status, ensuring transparency and reducing disputes among members
+                  because members can see if the materials are available or not. The module displays detailed information about
+                  rented items alongside their corresponding amounts, enabling members to see the financial value of rented
+                  resources and promoting accountability.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="flex flex-col md:flex-row-reverse items-start gap-8 mb-12">
+              <div className="md:w-12 flex-shrink-0 flex justify-center">
+                <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">2</div>
+              </div>
+              <div className="bg-orange-100 text-gray-900 p-6 rounded-xl max-w-3xl">
+                <h3 className="text-xl font-bold text-orange-600 mb-4">Resource Renting</h3>
+                <p className="leading-relaxed">
+                  Leaders will be able to see all the Iddirs that are renting out their materials.
+                  They can then be able to decide which Iddir they want to rent from and select the materials they want to rent from that Iddir,
+                  make the payment then collect the materials after being informed of the time to collect them.
+                  Leaders will also be able to see other Iddir leaders who want to rent materials from them.
+                  Once materials are rented out, the available materials will reduce in number since they are not currently available.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="flex flex-col md:flex-row items-start gap-8">
+              <div className="md:w-12 flex-shrink-0 flex justify-center">
+                <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">3</div>
+              </div>
+              <div className="bg-orange-100 text-gray-900 p-6 rounded-xl max-w-3xl">
+                <h3 className="text-xl font-bold text-orange-600 mb-4">Contribution & Financial Transparency</h3>
+                <p className="leading-relaxed">
+                  Members can view their contribution history, outstanding balances, and financial reports of the Iddir.
+                  The system ensures that all transactions are recorded and visible to authorized members,
+                  fostering trust and eliminating ambiguity in financial matters.
+                  Automated reminders help members stay up to date with their commitments.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <div className="h-16"></div>
         </div>
-    )
+      </main>
+
+      {/* Slow Rotation Animation for Target Image */}
+      <style>
+        {`
+          @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          .animate-rotate-slow {
+            animation: rotateSlow 20s linear infinite;
+            transform-origin: center;
+          }
+        `}
+      </style>
+    </div>
+  );
 }
+
+
+  <li>Type annotations for parameters/returns (e.g., <span className="font-mono">String?</span>, <span className="font-mono">List&lt;User&gt;</span>).</li>
