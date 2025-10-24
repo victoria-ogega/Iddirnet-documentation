@@ -4,6 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import NavBar from '../Navigation';
+import SystemArchitecture from '../systemarchitecture';
+import TargetUsers from '../targetusers/indes';
+import ProductOverview from '../productOverview';
 
 export default function HomePage() {
   const [currentInfoImage, setCurrentInfoImage] = useState(0);
@@ -24,7 +27,7 @@ export default function HomePage() {
       {/* Main Content Area — shifted right */}
       <main className="ml-64 w-full p-6 md:p-8">
         {/* Hero Section — Elegant & Centered */}
-        <section className="pt-6 pb-12 max-w-6xl mx-auto">
+        <section id="home" className="pt-6 pb-12 max-w-6xl mx-auto">
           <div className="text-center space-y-8">
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
               No more guesswork, just trust. Just{' '}
@@ -46,7 +49,6 @@ export default function HomePage() {
               It brings accountability, clarity, and convenience to one of Ethiopia's most cherished social institutions,
               empowering members to manage contributions, track finances, and reserve shared resources with full transparency.
               We bring communities together. IddirNet makes it easy to join, support, and connect with others, sharing life's joys and easing burdens all in one trusted space.
-         
             </p>
 
             {/* Feature Boxes — Card Style */}
@@ -76,104 +78,23 @@ export default function HomePage() {
         </section>
 
         <div className="max-w-7xl mx-auto">
-
-{/* System Architecture */}
-<section className="py-12 text-center">
-  <h2 className="text-3xl font-bold text-orange-500 mb-8">System Architecture</h2>
-
-  {/* Clickable Architecture Diagram */}
-  <div className="flex justify-center mb-12">
-    <a
-      href="https://lucid.app/lucidchart/5b591621-374c-4fe3-8fe9-f8877f7ce3ba/edit?invitationId=inv_5efca279-a249-403a-819a-90fb701e0782&page=0_0#"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block transition-transform duration-300 hover:scale-102 focus:outline-none"
-    >
-      <Image
-        src="/images/System architecture.png"
-        alt="System Architecture Diagram"
-        width={1200}
-        height={600}
-        className="rounded-xl shadow-lg max-w-full h-auto mx-auto"
-      />
-    </a>
-  </div>
-
-  {/* Backend & Database Details */}
-  <div className="max-w-4xl mx-auto space-y-10">
-    {/* Backend (API) */}
-    <div className="flex flex-col items-center">
-      <h3 className="text-2xl font-bold text-gray-800 mb-2">Backend (API)</h3>
-      <div className="w-24 h-1 bg-orange-500 rounded-full mb-4"></div>
-      <p className="text-gray-700 leading-relaxed max-w-2xl text-center">
-        Django REST Framework handles API endpoints, managing HTTP requests, data serialization, validation, and authentication.
-      </p>
-    </div>
-
-    {/* Database */}
-    <div className="flex flex-col items-center">
-      <h3 className="text-2xl font-bold text-gray-800 mb-2">Database</h3>
-      <div className="w-24 h-1 bg-orange-500 rounded-full mb-4"></div>
-      <p className="text-gray-700 leading-relaxed max-w-2xl text-center">
-        PostgreSQL for relational data storage, ensuring reliability, ACID compliance, and scalability for Iddir communities.
-      </p>
-    </div>
-  </div>
-
-
-</section>
-
-          {/* Target Users + Product Overview */}
-          <section className="py-5">
-            <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
-              <div className="lg:w-1/2">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">Our target users?</h2>
-                <p className="text-lg leading-relaxed text-gray-600">
-                  Our target audience comprises the esteemed leaders and dedicated members of an iddir,
-                  actively engaged on the vibrant platform, where they collaborate, connect, and contribute
-                  to their community's shared goals with passion and purpose.
-                </p>
-              </div>
-              <div className="lg:w-1/2 flex justify-center">
-                <Image
-                  src="/images/target.png"
-                  alt="Target Users Icon"
-                  width={400}
-                  height={400}
-                  className="max-w-full h-auto animate-rotate-slow"
-                />
-              </div>
-            </div>
-
-            {/* Product Overview */}
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-orange-500 mb-4">Product Overview</h2>
-            </div>
-
-            <div className="flex justify-center mb-8">
-              <Image
-                src="/images/phones.png"
-                alt="Mobile App Screenshots"
-                width={600}
-                height={400}
-                className="rounded-xl shadow-lg max-w-full h-auto transition-transform hover:scale-102"
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <Link
-                href="/mobile-app"
-                className="inline-block bg-white text-orange-400 border-2 border-orange-400 hover:border-orange-500 hover:bg-orange-50 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-md"
-              >
-                Mobile App
-              </Link>
-            </div>
+   
+          <section id="system-architecture">
+            <SystemArchitecture />
           </section>
 
-          {/* Admin Dashboard & Info Website */}
-          <section className="py-8">
+      
+          <section id="target-users">
+            <TargetUsers />
+          </section>
+
+          <section id="product-overview">
+            <ProductOverview />
+          </section>
+
+          <section id="admin-dashboard" className="py-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Admin Dashboard */}
+     
               <div className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
                 <h3 className="text-2xl font-bold text-orange-500 mb-4">Admin Dashboard</h3>
                 <div className="flex justify-center mb-4">
@@ -203,7 +124,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Informational Website */}
+     
               <div className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
                 <h3 className="text-2xl font-bold text-orange-500 mb-4">Informational Website</h3>
                 <div className="flex justify-center mb-4">
@@ -245,11 +166,11 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Divider */}
+   
           <div className="border-t border-gray-100 my-12"></div>
 
-          {/* ERD Diagram */}
-          <section className="py-12 text-center">
+     
+          <section id="erd" className="py-12 text-center">
             <h2 className="text-3xl font-bold text-orange-500 mb-6">Entity Relationship Diagram (ERD)</h2>
             <Image
               src="/images/ERD.png"
@@ -260,11 +181,10 @@ export default function HomePage() {
             />
           </section>
 
-          {/* Divider */}
+   
           <div className="border-t border-gray-100 my-12"></div>
 
-          {/* IddirNet Features Section — Original Style */}
-          <section className="py-12">
+          <section id="features" className="py-12">
             <h2 className="text-3xl font-bold text-orange-400 text-center mb-12">IddirNet Features</h2>
 
             {/* Feature 1 */}
@@ -302,17 +222,40 @@ export default function HomePage() {
             </div>
 
             {/* Feature 3 */}
-            <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="flex flex-col md:flex-row items-start gap-8 mb-12">
               <div className="md:w-12 flex-shrink-0 flex justify-center">
                 <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">3</div>
               </div>
               <div className="bg-orange-100 text-gray-900 p-6 rounded-xl max-w-3xl">
-                <h3 className="text-xl font-bold text-orange-600 mb-4">Contribution & Financial Transparency</h3>
+                <h3 className="text-xl font-bold text-orange-600 mb-4">Payment Management Module</h3>
                 <p className="leading-relaxed">
-                  Members can view their contribution history, outstanding balances, and financial reports of the Iddir.
-                  The system ensures that all transactions are recorded and visible to authorized members,
-                  fostering trust and eliminating ambiguity in financial matters.
-                  Automated reminders help members stay up to date with their commitments.
+                  Facilitates easy handling of all types of payments within the Iddir, including monthly fees, fines for missed contributions or meetings, and rental payments for borrowed items. It automatically generates and issues digital receipts for every transaction, which are stored and accessible to all members. The module also lists members alongside the amounts and timestamps of their payments, enhancing transparency and preventing payment-related misunderstandings.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="flex flex-col md:flex-row-reverse items-start gap-8 mb-12">
+              <div className="md:w-12 flex-shrink-0 flex justify-center">
+                <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">4</div>
+              </div>
+              <div className="bg-orange-100 text-gray-900 p-6 rounded-xl max-w-3xl">
+                <h3 className="text-xl font-bold text-orange-600 mb-4">Member Management Module</h3>
+                <p className="leading-relaxed">
+                  Stores and manages member profiles, tracking their payment histories, borrowing activities, and participation in Iddir functions. It allows Iddir leaders to view active members, their statuses, and contribution records, fostering inclusive and informed community management. The members can also view members and leaders.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="flex flex-col md:flex-row items-start gap-8 mb-12">
+              <div className="md:w-12 flex-shrink-0 flex justify-center">
+                <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">5</div>
+              </div>
+              <div className="bg-orange-100 text-gray-900 p-6 rounded-xl max-w-3xl">
+                <h3 className="text-xl font-bold text-orange-600 mb-4">Authentication & Security</h3>
+                <p className="leading-relaxed">
+                  Secures user access to the platform, allowing members to register, log in, and access only relevant information based on their roles (member and leader). Role-based access ensures sensitive financial and resource data is protected, maintaining community trust and privacy.
                 </p>
               </div>
             </div>
@@ -338,6 +281,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-  <li>Type annotations for parameters/returns (e.g., <span className="font-mono">String?</span>, <span className="font-mono">List&lt;User&gt;</span>).</li>
