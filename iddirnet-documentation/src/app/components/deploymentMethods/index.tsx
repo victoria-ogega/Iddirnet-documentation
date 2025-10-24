@@ -141,6 +141,48 @@ export default function Deployment() {
                         </div>
                     </div>
 
+                    {/* Mobile Deployment */}
+                    <div className="relative bg-white rounded-xl p-6 shadow-sm border-2 border-[#FF9800] hover:shadow-md transition-shadow">
+                        <div
+                            className="absolute -left-4 sm:-left-8 top-6 sm:top-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#FF9800] text-white text-center font-bold text-sm sm:text-lg select-none"
+                            style={{ lineHeight: '2.5rem' }}
+                        >
+                            3
+                        </div>
+                        <h2 className="text-xl font-bold mb-3" style={{ color: '#FF9800' }}>
+                            Mobile Deployment – APK Bundles & Google Play Store
+                        </h2>
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                            The mobile app is packaged as APK bundles to optimize size for diverse Android devices common in Ethiopian communities,
+                            and published on Google Play Store to reach users efficiently with easy updates and secure delivery.
+                        </p>
+
+                        <p className="text-gray-700 leading-relaxed font-semibold mb-4">
+                            Instructions for Deployment
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <ol className="list-decimal list-inside space-y-2 text-gray-700 leading-relaxed text-sm">
+                                    <li>Generate signed AAB with release keystore</li>
+                                    <li>Get access for Play Developer account</li>
+                                    <li>Create new app in Play Console</li>
+                                    <li>Upload app icon, feature graphic, and screenshots</li>
+                                    <li>Write app title and description</li>
+                                </ol>
+                            </div>
+
+                            <div>
+                                <ol start={6} className="list-decimal list-inside space-y-2 text-gray-700 leading-relaxed text-sm">
+                                    <li>Complete Data Safety and content compliance</li>
+                                    <li>Upload signed AAB to Production track</li>
+                                    <li>Add release notes for the version</li>
+                                    <li>Set app as Free and choose countries</li>
+                                    <li>Review and roll out to Production</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
