@@ -34,14 +34,25 @@ export default function HomePage() {
               <span className="text-orange-500">IddirNet.</span>
             </h1>
 
-            <div className="flex justify-center mb-8">
-              <Image
-                src="/images/people.png"
-                alt="Iddir Community Illustration"
-                width={450}
-                height={350}
-                className=" max-w-full h-auto transition-transform hover:scale-105"
-              />
+            <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-center mb-12">
+                <div className="md:w-150 leading-relaxed text-sm sm:text-base text-justify">
+                    <p>IddirNet is a digital platform built for Ethiopian communities called Iddirs, designed to modernize their
+                        traditional systems. It brings accountability, clarity, and convenience to one of Ethiopia's most
+                        cherished social institutions empowering members to manage contributions, track finances, and reserve shared
+                        resources with full transparency.We bring communities together.IddirNet makes it easy to join,
+                        support, and connect with others, sharing life's joys
+                        and easing burdens all in one trusted space. We are  dedicated to strengthening the values of trust, transparency, and
+                        solidarity within Ethiopian Iddirs.</p>
+                </div>
+                <div className="md:w-1/3 flex justify-center">
+                    <Image
+                        src="/images/community and togetherness.jpg"
+                        alt="Community and togetherness"
+                        width={300}
+                        height={200}
+                        className="rounded-lg shadow-md"
+                    />
+                </div>
             </div>
 
             <p className="text-lg md:text-xl leading-relaxed max-w-7xl mx-auto text-gray-600">
