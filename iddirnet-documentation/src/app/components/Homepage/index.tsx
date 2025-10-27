@@ -2,23 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import NavBar from '../Navigation';
 import SystemArchitecture from '../systemarchitecture';
 import TargetUsers from '../targetusers/indes';
 import ProductOverview from '../productOverview';
 
 export default function HomePage() {
-  const [currentInfoImage, setCurrentInfoImage] = useState(0);
-  const infoImages = ['/images/infor1.png', '/images/infor2.png'];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentInfoImage((prev) => (prev + 1) % infoImages.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [infoImages.length]);
-
   return (
     <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
@@ -78,96 +67,12 @@ export default function HomePage() {
         </section>
 
         <div className="max-w-7xl mx-auto">
-   
+               <section id="target-users">
+            <TargetUsers />
+          </section>
           <section id="system-architecture">
             <SystemArchitecture />
           </section>
-
-      
-          <section id="target-users">
-            <TargetUsers />
-          </section>
-
-          <section id="product-overview">
-            <ProductOverview />
-          </section>
-
-          <section id="admin-dashboard" className="py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-     
-              <div className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                <h3 className="text-2xl font-bold text-orange-500 mb-4">Admin Dashboard</h3>
-                <div className="flex justify-center mb-4">
-                  <Image
-                    src="/images/dashboard.png"
-                    alt="Admin Dashboard Preview"
-                    width={900}
-                    height={700}
-                    className="rounded-xl max-w-full h-auto shadow-inner"
-                  />
-                </div>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  A web-based dashboard for Iddir administrators to manage members, contributions, events,
-                  and resources with real-time insights and full control.
-                </p>
-                <div className="flex justify-center">
-                  <Link href="https://iddirnet-beige.vercel.app/" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-700 font-medium">
-                    Explore Dashboard
-                    <Image
-                      src="/images/arrow.png"
-                      alt="Go to Admin Dashboard"
-                      width={24}
-                      height={24}
-                      className="transition-transform hover:translate-x-1"
-                    />
-                  </Link>
-                </div>
-              </div>
-
-     
-              <div className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                <h3 className="text-2xl font-bold text-orange-500 mb-4">Informational Website</h3>
-                <div className="flex justify-center mb-4">
-                  <div className="relative w-full max-w-[900px] aspect-[1160/700] rounded-xl overflow-hidden shadow-inner">
-                    {infoImages.map((src, index) => (
-                      <div
-                        key={index}
-                        className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                          index === currentInfoImage ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      >
-                        <Image
-                          src={src}
-                          alt={`Informational Website Slide ${index + 1}`}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  A public-facing website that explains the IddirNet mission, benefits, and how to get started.
-                  Designed to educate and onboard new communities.
-                </p>
-                <div className="flex justify-center">
-                  <Link href="https://iddirnet.vercel.app/" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-700 font-medium">
-                    Visit Website
-                    <Image
-                      src="/images/arrow.png"
-                      alt="Go to Info Website"
-                      width={24}
-                      height={24}
-                      className="transition-transform hover:translate-x-1"
-                    />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-
-   
-          <div className="border-t border-gray-100 my-12"></div>
 
      
           <section id="erd" className="py-12 text-center">
@@ -180,11 +85,148 @@ export default function HomePage() {
               className="rounded-xl shadow-lg max-w-full h-auto mx-auto"
             />
           </section>
+<section id="use-client" className="py-12">
+  <h2 className="text-3xl font-bold text-orange-500 text-center mb-12">Database Schema</h2>
+  
+  <div className="max-w-5xl mx-auto">
+    <div className="bg-white rounded-lg p-6 mb-8">
+      <h3 className="text-xl font-bold text-gray-800 mb-4">Iddir Model</h3>
+      <div className="bg-white border-2 border-orange-400 text-gray-800 p-4 rounded-md overflow-x-auto">
+        <pre className="text-sm">
+          <code>{`class Iddir(models.Model):
+   iddir_id = models.AutoField(primary_key=True)
+   iddir_name = models.CharField(max_length=100, unique=True)
+   account_number = models.CharField(max_length=10, unique=True)
+   address = models.CharField(max_length=50)
+   latitude = models.FloatField(null=True, blank=True)
+   monthly_fee = models.IntegerField(default=0)
+   longitude = models.FloatField(null=True, blank=True)
+   description = models.TextField()
+   rule_text = models.TextField()
+   is_approved = models.BooleanField(default=False)
+   requested_by = models.ForeignKey(User, on_delete=models.CASCADE)
+   approvers = models.ManyToManyField(User)
+   approved_by = models.ManyToManyField(User)
+   leader_availability_start = models.DateTimeField(null=True)
+   leader_availability_end = models.DateTimeField(null=True)`}</code>
+        </pre>
+      </div>
+      <p className="text-gray-600 mt-3 text-sm">
+        Represents an Iddir community group with approval workflow and location data.
+      </p>
+    </div>
 
+    <div className="bg-white rounded-lg p-6 mb-8">
+      <h3 className="text-xl font-bold text-gray-800 mb-4">Membership Model</h3>
+      <div className="bg-white border-2 border-orange-400 text-gray-800 p-4 rounded-md overflow-x-auto">
+        <pre className="text-sm">
+          <code>{`class Membership(models.Model):
+   ROLE_CHOICES = [("member", "Member"), ("leader", "Leader")]
+   STATUS_CHOICES = [("pending", "Pending"), ("accepted", "Accepted"), ("declined", "Declined")]
    
-          <div className="border-t border-gray-100 my-12"></div>
+   membership_id = models.AutoField(primary_key=True)
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   inviter = models.ForeignKey(User, on_delete=models.SET_NULL)
+   iddir = models.ForeignKey(Iddir, on_delete=models.CASCADE)
+   role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+   email = models.EmailField(max_length=254)
+   image = models.ImageField(upload_to="membership_images/")
+   is_active = models.BooleanField(default=True)
+   is_approved = models.BooleanField(default=False)
+   joined_at = models.DateField(null=True)
+   left_at = models.DateField(null=True)
+   status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+   token = models.CharField(max_length=100, unique=True)
+   responded_at = models.DateTimeField(null=True)
+   created_at = models.DateTimeField(default=timezone.now)`}</code>
+        </pre>
+      </div>
+      <p className="text-gray-600 mt-3 text-sm">
+        Manages user membership in Iddir communities with role-based access and invitation tokens.
+      </p>
+    </div>
 
-          <section id="features" className="py-12">
+    <div className="bg-white rounded-lg p-6 mb-8">
+      <h3 className="text-xl font-bold text-gray-800 mb-4">Payment Model</h3>
+      <div className="bg-white border-2 border-orange-400 text-gray-800 p-4 rounded-md overflow-x-auto">
+        <pre className="text-sm">
+          <code>{`class Payment(models.Model):
+   PAYMENT_TYPE_CHOICES = [("monthly", "Monthly"), ("rent", "Rent")]
+   
+   payment_id = models.AutoField(primary_key=True)
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   amount = models.DecimalField(max_digits=10, decimal_places=2)
+   payment_date = models.DateField(null=True)
+   payment_type = models.CharField(max_length=20, choices=PAYMENT_TYPE_CHOICES)
+   fine = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+   due_date = models.DateField(null=True)
+   paying_iddir = models.ForeignKey(Iddir, on_delete=models.CASCADE)
+   receiving_iddir = models.ForeignKey(Iddir, on_delete=models.CASCADE)
+   receipt_file = models.FileField(upload_to="receipts/")
+   merchant_request_id = models.CharField(max_length=255)
+   checkout_request_id = models.CharField(max_length=255)
+   mpesa_receipt_number = models.CharField(max_length=50)
+   result_code = models.CharField(max_length=10)
+   result_desc = models.TextField()
+   status = models.CharField(max_length=20, default="PENDING")
+   renting = models.ManyToManyField(Renting)`}</code>
+        </pre>
+      </div>
+      <p className="text-gray-600 mt-3 text-sm">
+        Handles all payment transactions including monthly fees and resource rentals with M-Pesa integration.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <div className="bg-white rounded-lg p-6">
+    <h3 className="text-xl font-bold text-gray-800 mb-4">Renting Model</h3>
+    <div className="bg-white border-2 border-orange-400 text-gray-800 p-4 rounded-md">
+      <pre className="text-sm whitespace-pre-wrap break-words">
+        <code>{`class Renting(models.Model):
+   TRANSACTION_TYPES = [("booking", "Booking"), ("renting", "Renting")]
+   STATUS_CHOICES = [("active", "Active"), ("returned", "Returned"), ("cancelled", "Cancelled")]
+   
+   rented_id = models.AutoField(primary_key=True)
+   resources = models.ManyToManyField(Resources, through=RentingResource)
+   renter = models.ForeignKey(Iddir, on_delete=models.CASCADE)
+   borrower = models.ForeignKey(Iddir, on_delete=models.CASCADE)
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   rental_start_date = models.DateField()
+   rental_end_date = models.DateField()
+   transaction_type = models.CharField(max_length=10)
+   status = models.CharField(max_length=10)
+   total_price = models.DecimalField(max_digits=10, decimal_places=2)
+   created_at = models.DateTimeField(auto_now_add=True)`}</code>
+      </pre>
+    </div>
+    <p className="text-gray-600 mt-3 text-sm">
+      Manages resource rentals between Iddir communities.
+    </p>
+  </div>
+
+  <div className="bg-white rounded-lg p-6">
+    <h3 className="text-xl font-bold text-gray-800 mb-4">Resources Model</h3>
+    <div className="bg-white border-2 border-orange-400 text-gray-800 p-4 rounded-md">
+      <pre className="text-sm whitespace-pre-wrap break-words">
+        <code>{`class Resources(models.Model):
+   resource_id = models.AutoField(primary_key=True)
+   resource_name = models.CharField(max_length=50)
+   image = models.ImageField(upload_to="resource_images/")
+   available_quantity = models.IntegerField()
+   unit_price = models.DecimalField(max_digits=10, decimal_places=2)
+   iddir = models.ForeignKey(Iddir, on_delete=models.CASCADE)
+   resource_status = models.CharField(max_length=20)`}</code>
+      </pre>
+    </div>
+    <p className="text-gray-600 mt-3 text-sm">
+      Represents physical resources owned by Iddir communities.
+    </p>
+  </div>
+</div>
+  </div>
+</section>
+
+  <section id="features" className="py-12">
             <h2 className="text-3xl font-bold text-orange-400 text-center mb-12">IddirNet Features</h2>
 
             {/* Feature 1 */}
@@ -260,6 +302,82 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+            {/* Key Endpoints Section */}
+          <section id="key-endpoints" className="py-12">
+            <h2 className="text-3xl font-bold text-orange-500 text-center mb-12">Key API Endpoints</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {/* Endpoint 1 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">POST</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/signup/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Create a new user account and register as a member</p>
+              </div>
+
+              {/* Endpoint 2 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">POST</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/login/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Authenticate users and provide access tokens</p>
+              </div>
+
+              {/* Endpoint 3 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">GET</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/iddirs/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Retrieve list of all Iddirs and their details</p>
+              </div>
+
+              {/* Endpoint 4 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">GET</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/membership/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Access membership information and status</p>
+              </div>
+
+              {/* Endpoint 5 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">GET</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/renting/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Manage resource rentals and availability</p>
+              </div>
+
+              {/* Endpoint 6 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">GET</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/users/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Retrieve user profiles and account information</p>
+              </div>
+
+              {/* Endpoint 7 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all hover:border-orange-300 group">
+                <div className="flex items-center mb-3">
+                  <span className="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">GET</span>
+                  <span className="ml-3 font-mono text-sm text-gray-700 group-hover:text-orange-600 transition-colors">/api/payments/</span>
+                </div>
+                <p className="text-gray-600 text-sm">Access payment history and transaction records</p>
+              </div>
+            </div>
+          </section>
+          <section id="product-overview">
+            <ProductOverview />
+          </section>
+
+   
+
+    
 
           <div className="h-16"></div>
         </div>

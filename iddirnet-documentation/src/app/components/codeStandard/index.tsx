@@ -4,16 +4,16 @@ import React from "react";
 export default function NamingConventions() {
   return (
     <div
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12 font-sans"
+      className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12 font-sans 2xl:ml-85 xl:ml-67"
       style={{ fontFamily: "'Nunito', sans-serif", color: '#171717' }}
     >
-      {/* Hero Section - Matching Deployment Component Structure */}
-      <section className="flex flex-col md:flex-row gap-6 md:gap-16 lg:gap-60 items-center">
-        <div className="md:w-2/3 space-y-5">
+    
+      <section className="flex flex-col md:flex-row gap-6 md:gap-16 lg:gap-60 items-center ">
+        <div className=" space-y-5">
           <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: '#FF9800' }}>
             Naming Conventions & Coding Standards
           </h1>
-          <p className="text-gray-700 leading-relaxed text-base sm:text-lg text-justify">
+          <p className="text-gray-700 leading-relaxed text-base sm:text-lg text-justify 2xl:ml-0 2xl:w-[1100px]  xl:w-[900px] ">
             Consistent naming conventions and coding standards are essential for maintaining code quality,
             readability, and collaboration across the IddirNet platform. These standards ensure that all team members
             can easily understand and work with the codebase, regardless of which component they are focusing on.
@@ -23,8 +23,8 @@ export default function NamingConventions() {
         </div>
       </section>
 
-      {/* Naming Convention Categories - Matching Deployment Component Structure */}
-      <section className="mt-16 sm:mt-20">
+ 
+      <section className="mt-16 sm:mt-20 2xl:max-w-[1400px] xl:max-w-[900px] ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           <div className="flex flex-col gap-6 sm:gap-8">
             <section className="bg-[#0c1929] text-white rounded-md border border-[#B88704] p-4 sm:p-5 shadow-sm">

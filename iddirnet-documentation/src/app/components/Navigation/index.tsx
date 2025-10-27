@@ -13,7 +13,6 @@ export default function NavBar() {
     { name: 'Home', href: '/#home' },
     { name: 'Code Structure', href: '/#code-structure' },
     { name: 'Setup Instructions', href: '/#setup-instructions' },
-    { name: 'Naming Conventions', href: '/#naming-conventions' },
     { name: 'Testing', href: '/#testing' },
     { name: 'Deployment', href: '/#deployment' },
   ];
@@ -47,7 +46,7 @@ export default function NavBar() {
 
     if (href.startsWith('/#')) {
       e.preventDefault();
-      const targetId = href.substring(2); // Remove '/#'
+      const targetId = href.substring(2);
       const element = document.getElementById(targetId);
       
       if (element) {

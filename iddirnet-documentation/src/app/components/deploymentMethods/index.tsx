@@ -1,13 +1,15 @@
 export default function Deployment() {
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 font-sans" style={{ fontFamily: "'Nunito', sans-serif", color: '#171717' }}>
-            {/* Hero Section - Matching Testing Component Structure */}
+        <div 
+            className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-12 font-sans 2xl:ml-85 xl:ml-67" 
+            style={{ fontFamily: "'Nunito', sans-serif", color: '#171717' }}
+        >
             <section className="flex flex-col md:flex-row gap-6 md:gap-16 lg:gap-60 items-center">
                 <div className="md:w-2/3 space-y-5">
                     <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: '#FF9800' }}>
                         Deployment Strategy
                     </h1>
-                    <p className="text-gray-700 leading-relaxed text-base sm:text-lg text-justify">
+                    <p className="text-gray-700 leading-relaxed text-base sm:text-lg text-justify xl:w-[900] 2xl:w-[900]">
                         Deploying the IddirNet platform components involved careful consideration of performance, scalability,
                         ease of maintenance, and user accessibility. We chose deployment solutions that maximize reliability while aligning
                         with community needs and technology stack strengths. Across backend, frontend, and mobile app deployments, our strategy
@@ -16,10 +18,8 @@ export default function Deployment() {
                 </div>
             </section>
 
-            {/* Deployment Categories - Matching Testing Component Structure */}
-            <section className="mt-16 sm:mt-20">
+            <section className="mt-16 sm:mt-20 2xl:max-w-[1400px] xl:max-w-[900px]">
                 <div className="space-y-8 sm:space-y-12">
-                    {/* Backend Deployment */}
                     <div className="relative bg-white rounded-xl p-6 shadow-sm border-2 border-[#FF9800] hover:shadow-md transition-shadow">
                         <div
                             className="absolute -left-4 sm:-left-8 top-6 sm:top-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#FF9800] text-white text-center font-bold text-sm sm:text-lg select-none"
@@ -65,7 +65,6 @@ export default function Deployment() {
                         </div>
                     </div>
 
-                    {/* Frontend Deployment */}
                     <div className="relative bg-white rounded-xl p-6 shadow-sm border-2 border-gray-800 hover:shadow-md transition-shadow">
                         <div
                             className="absolute -left-4 sm:-left-8 top-6 sm:top-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E2736] text-white text-center font-bold text-sm sm:text-lg select-none"
@@ -143,6 +142,130 @@ export default function Deployment() {
                                     <li>Add release notes for the version</li>
                                     <li>Set app as Free and choose countries</li>
                                     <li>Review and roll out to Production</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* CI/CD Section */}
+                    <div className="relative bg-white rounded-xl p-8 shadow-md border-2 border-gray-800 hover:shadow-lg transition-shadow">
+                        <div
+                            className="absolute -left-4 sm:-left-8 top-8 sm:top-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E2736] text-white text-center font-bold text-sm sm:text-lg select-none"
+                            style={{ lineHeight: '2.5rem' }}
+                        >
+                            4
+                        </div>
+                        <h2 className="text-xl font-bold mb-5 text-gray-800">
+                            CI/CD Pipeline – GitHub Actions
+                        </h2>
+                        <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                            Our CI/CD pipeline leverages GitHub Actions to automate testing, building, and deployment across all components. This ensures code quality, 
+                            reduces manual errors, and enables rapid, reliable delivery of features to production environments.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="bg-gray-50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="flex items-center mb-3">
+                                    <svg className="w-6 h-6 mr-3" style={{ color: '#1E2736' }} fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <h3 className="font-semibold text-gray-800 text-lg">Pre-Deployment Checks</h3>
+                                </div>
+                                <p className="text-sm text-gray-600">All codebases run comprehensive tests, build verification, and lint checks before deployment to ensure code quality.</p>
+                            </div>
+                            
+                            <div className="bg-gray-50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="flex items-center mb-3">
+                                    <svg className="w-6 h-6 mr-3" style={{ color: '#1E2736' }} fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <h3 className="font-semibold text-gray-800 text-lg">Automated Deployment</h3>
+                                </div>
+                                <p className="text-sm text-gray-600">Code is automatically deployed to production environments when PR from develop to main is merged, streamlining our release process.</p>
+                            </div>
+                            
+                            <div className="bg-gray-50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="flex items-center mb-3">
+                                    <svg className="w-6 h-6 mr-3" style={{ color: '#1E2736' }} fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <h3 className="font-semibold text-gray-800 text-lg">Status Visibility</h3>
+                                </div>
+                                <p className="text-sm text-gray-600">Build and test status are clearly visible in pull requests from develop to main and repository dashboard for transparent development workflow.</p>
+                            </div>
+                            
+                            <div className="bg-gray-50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="flex items-center mb-3">
+                                    <svg className="w-6 h-6 mr-3" style={{ color: '#1E2736' }} fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <h3 className="font-semibold text-gray-800 text-lg">Branch Strategy</h3>
+                                </div>
+                                <p className="text-sm text-gray-600">Features are pushed to develop branch, then PRs are created from develop to main for code review and deployment.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Workflow Configuration - Outside the box */}
+                    <div className="mt-8 space-y-6">
+                        <h3 className="text-xl font-bold text-gray-800">
+                            Workflow Configuration
+                        </h3>
+
+                        <div className="bg-gray-900 text-gray-100 rounded-lg p-4 mb-6 overflow-x-auto">
+                            <pre className="text-sm">
+                                <code>{`name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    - name: Run tests
+      run: |
+        pytest
+        
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy to production
+      run: |
+        # Deployment commands here`}</code>
+                            </pre>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <ol className="list-decimal list-inside space-y-2 text-gray-700 leading-relaxed text-sm">
+                                    <li>Create .github/workflows directory in your repository</li>
+                                    <li>Add workflow YAML files for each component</li>
+                                    <li>Configure environment secrets in GitHub repository settings</li>
+                                    <li>Set up triggers for push to develop and PR to main</li>
+                                </ol>
+                            </div>
+
+                            <div>
+                                <ol start={5} className="list-decimal list-inside space-y-2 text-gray-700 leading-relaxed text-sm">
+                                    <li>Define jobs for testing, building, and deployment</li>
+                                    <li>Configure job dependencies with needs keyword</li>
+                                    <li>Set up notifications for build failures</li>
+                                    <li>Monitor workflow runs in Actions tab of repository</li>
                                 </ol>
                             </div>
                         </div>
